@@ -1,136 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team SPY - Bot is Live</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DiggiDigi - Telegram Bot is Live!" />
+  <meta property="og:title" content="DiggiDigi - Bot is Live" />
+  <meta property="og:description" content="Join the DiggiDigi bot on Telegram and explore our GitHub." />
+  <meta property="og:url" content="https://t.me/DiggiDigi" />
+  <meta name="theme-color" content="#000000" />
+  <title>DiggiDigi - Bot is Live</title>
 
-        body, html {
-            height: 100%;
-            font-family: 'Courier New', Courier, monospace;
-            background: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-        /* Main content container */
-        .container {
-            text-align: center;
-            z-index: 1;
-        }
+  <style>
+    :root {
+      --accent: #00ffab;
+      --accent-secondary: #ff00ff;
+      --btn-gradient: linear-gradient(90deg, #6a11cb, #2575fc);
+      --btn-gradient-hover: linear-gradient(90deg, #2575fc, #6a11cb);
+      --glitch-1: #00ff00;
+      --glitch-2: #ff00ff;
+      --background: #0a0a0a;
+    }
 
-        /* Animating text appearance */
-        @keyframes glitch {
-            0% {
-                text-shadow: 2px 2px #00ff00, -2px -2px #00ff00;
-            }
-            20% {
-                text-shadow: 2px -2px #ff00ff, -2px 2px #00ff00;
-            }
-            40% {
-                text-shadow: -2px 2px #00ff00, 2px -2px #ff00ff;
-            }
-            60% {
-                text-shadow: 2px 2px #ff00ff, -2px -2px #00ff00;
-            }
-            80% {
-                text-shadow: -2px -2px #ff00ff, 2px 2px #00ff00;
-            }
-            100% {
-                text-shadow: 2px 2px #00ff00, -2px -2px #00ff00;
-            }
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Styling for the welcome text */
-        .team-spy {
-            font-size: 3rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            background: linear-gradient(90deg, #ff6a00, #ee0979, #8e44ad, #3498db, #f4d03f);
-            background-size: 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-            animation: glitch 1.5s infinite;
-        }
+    body, html {
+      height: 100%;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--background);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
 
-        .bot-status {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: #00ffab;
-            text-shadow: 0 0 10px #00ffab, 0 0 20px #00ffab;
-        }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
 
-        .actions {
-            margin-top: 20px;
-        }
+    .container {
+      z-index: 1;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(0, 255, 171, 0.3);
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 171, 0.2);
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent,
+        transparent,
+        transparent,
+        rgba(0, 255, 171, 0.1),
+        transparent,
+        transparent,
+        transparent
+      );
+      transform: rotate(30deg);
+      animation: shine 5s infinite linear;
+      pointer-events: none;
+    }
 
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(90deg, #2575fc, #6a11cb);
-        }
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .team-spy {
-                font-size: 2.5rem;
-            }
+    @keyframes glitch {
+      0%, 100% { text-shadow: 2px 2px var(--glitch-1), -2px -2px var(--glitch-2); }
+      20% { text-shadow: 2px -2px var(--glitch-2), -2px 2px var(--glitch-1); }
+      40% { text-shadow: -2px 2px var(--glitch-1), 2px -2px var(--glitch-2); }
+      60% { text-shadow: 2px 2px var(--glitch-2), -2px -2px var(--glitch-1); }
+      80% { text-shadow: -2px -2px var(--glitch-2), 2px 2px var(--glitch-1); }
+    }
 
-            .bot-status {
-                font-size: 1rem;
-            }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
 
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-        }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-        @media (min-width: 1200px) {
-            .team-spy {
-                font-size: 4rem;
-            }
-        }
-    </style>
+    @keyframes colorCycle {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .logo-container {
+      position: relative;
+      margin-bottom: 20px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .diggi {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      background: linear-gradient(90deg, #ff6a00, #ee0979, #8e44ad, #3498db, #f4d03f);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      animation: glitch 1.5s infinite alternate, colorCycle 5s infinite linear;
+      padding: 10px 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .diggi::before, .diggi::after {
+      content: 'DiggiDigi';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+    }
+
+    .diggi::before {
+      left: 2px;
+      text-shadow: -2px 0 var(--glitch-1);
+      animation: glitch-anim-1 2s infinite linear alternate-reverse;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    }
+
+    .diggi::after {
+      left: -2px;
+      text-shadow: 2px 0 var(--glitch-2);
+      animation: glitch-anim-2 2s infinite linear alternate-reverse;
+      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    }
+
+    @keyframes glitch-anim-1 {
+      0% { transform: translateX(0); }
+      80% { transform: translateX(0); }
+      85% { transform: translateX(2px); }
+      90% { transform: translateX(-2px); }
+      95% { transform: translateX(2px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes glitch-anim-2 {
+      0% { transform: translateX(0); }
+      80% { transform: translateX(0); }
+      85% { transform: translateX(-2px); }
+      90% { transform: translateX(2px); }
+      95% { transform: translateX(-2px); }
+      100% { transform: translateX(0); }
+    }
+
+    .bot-status {
+      margin: 25px 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+      position: relative;
+      display: inline-block;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .bot-status::before, .bot-status::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 40px;
+      background: var(--accent);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .bot-status::before {
+      left: -60px;
+    }
+
+    .bot-status::after {
+      right: -60px;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      margin: 0 10px;
+      box-shadow: 0 0 15px var(--accent);
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .actions {
+      margin-top: 35px;
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 30px;
+      background: var(--btn-gradient);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(106, 17, 203, 0.6);
+      background: var(--btn-gradient-hover);
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .btn i {
+      font-size: 1.2rem;
+    }
+
+    .decorative-line {
+      height: 2px;
+      width: 80%;
+      margin: 30px auto;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      position: relative;
+    }
+
+    .decorative-line::before, .decorative-line::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .decorative-line::before {
+      left: 0;
+    }
+
+    .decorative-line::after {
+      right: 0;
+    }
+
+    .corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--accent);
+      border-style: solid;
+      border-width: 0;
+      opacity: 0.8;
+    }
+
+    .corner-top-left {
+      top: 10px;
+      left: 10px;
+      border-top-width: 2px;
+      border-left-width: 2px;
+    }
+
+    .corner-top-right {
+      top: 10px;
+      right: 10px;
+      border-top-width: 2px;
+      border-right-width: 2px;
+    }
+
+    .corner-bottom-left {
+      bottom: 10px;
+      left: 10px;
+      border-bottom-width: 2px;
+      border-left-width: 2px;
+    }
+
+    .corner-bottom-right {
+      bottom: 10px;
+      right: 10px;
+      border-bottom-width: 2px;
+      border-right-width: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 30px 20px; }
+      .diggi { font-size: 2.3rem; }
+      .bot-status { 
+        font-size: 1.2rem; 
+        margin: 15px 0;
+      }
+      .bot-status::before, .bot-status::after {
+        width: 20px;
+      }
+      .bot-status::before {
+        left: -30px;
+      }
+      .bot-status::after {
+        right: -30px;
+      }
+      .btn { 
+        padding: 12px 20px; 
+        font-size: 0.9rem; 
+      }
+      .actions {
+        gap: 15px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .diggi { font-size: 4rem; }
+      .container { max-width: 700px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Main Content -->
-    <div class="container">
-        <div class="team-spy">Team SPY</div>
-        <div class="bot-status">⚡ Bot is Live ⚡</div>
-
-        <div class="actions">
-            <a href="https://t.me/team_spy_pro" class="btn">Join Us</a>
-            <a href="https://github.com/devgaganin" class="btn">GitHub</a>
-        </div>
+  <div id="particles-js"></div>
+  
+  <main class="container" role="main">
+    <div class="corner corner-top-left"></div>
+    <div class="corner corner-top-right"></div>
+    <div class="corner corner-bottom-left"></div>
+    <div class="corner corner-bottom-right"></div>
+    
+    <div class="logo-container">
+      <h1 class="diggi">DiggiDigi</h1>
     </div>
+    
+    <div class="decorative-line"></div>
+    
+    <p class="bot-status">
+      <span class="status-indicator"></span>
+      Bot is Live
+      <span class="status-indicator"></span>
+    </p>
+
+    <nav class="actions" aria-label="Links">
+      <a href="https://t.me/DiggiDigi" class="btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram-plane"></i> Join Us
+      </a>
+      <a href="https://github.com/ReOneSec" class="btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </nav>
+  </main>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": ["#00ffab", "#00bfff", "#ff00ff"]
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#00ffab",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": true,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 100,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
 </body>
 </html>
